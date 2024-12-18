@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portfolio</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #111827;
+            color: white;
+            margin: 0;
+            padding: 32px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 i {
+            margin-right: 0.75rem;
+        }
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border-radius: 0.5rem;
+            background-color: #1f2937;
+            font-family: monospace;
+            color: #9ca3af;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #374151;
+        }
+        .nav-button.active {
+            background-color: #059669;
+            color: white;
+        }
+        .nav-button i {
+            margin-right: 0.5rem;
+        }
+        .section {
+            display: none;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .section.active {
+            display: block;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        #profile {
+            background-color: rgba(6, 78, 59, 0.5);
+        }
+        #profile h2 {
+            color: #6ee7b7;
+        }
+        .profile-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .profile-image {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            border: 4px solid #10b981;
+            margin-right: 1rem;
+        }
+        .profile-info h3 {
+            font-size: 1.25rem;
+            color: #a7f3d0;
+            margin: 0;
+        }
+        .profile-info p {
+            color: #6ee7b7;
+            margin: 0.5rem 0;
+        }
+        /* Container for the skill tags */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;  /* Allow tags to wrap onto the next line if needed */
+    justify-content: center;  /* Center the tags horizontally */
+    gap: 10px;  /* Space between tags */
+    margin: 20px;  /* Add margin around the container */
+}
+
+/* Style for each individual skill tag */
+.skill-tag {
+            background-color: #059669;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+.skill-tag:hover {
+    transform: scale(1.1);  /* Slightly enlarge tag on hover */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 600px) {
+    .skills-container {
+        gap: 8px;  /* Reduce the gap on small screens */
+    }
+
+    .skill-tag {
+        font-size: 12px;  /* Reduce font size for small screens */
+        padding: 8px 15px;  /* Adjust padding */
+    }
+}
+
+@media (max-width: 400px) {
+    .skills-container {
+        gap: 5px;  /* Even smaller gap for very small screens */
+    }
+
+    .skill-tag {
+        font-size: 10px;  /* Reduce font size even further */
+        padding: 6px 12px;  /* Adjust padding for smaller screens */
+    }
+}
+        #projects {
+            background-color: rgba(30, 58, 138, 0.5);
+        }
+        #projects h2 {
+            color: #93c5fd;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .project-card {
+            background-color: #1e40af;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-card h3 {
+            font-size: 1.25rem;
+            color: #bfdbfe;
+            margin: 0 0 0.5rem 0;
+        }
+        .project-card p {
+            color: #93c5fd;
+            margin: 0 0 0.5rem 0;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .tech-tag {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #achievements {
+            background-color: rgba(76, 29, 149, 0.5);
+        }
+        #achievements h2 {
+            color: #c4b5fd;
+        }
+        .achievement-card {
+            background-color: #5b21b6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            max-height: 150px; /* Reduce the height */
+            overflow: hidden;
+        }
+        .achievement-card i {
+            color: #fbbf24;
+            font-size: 2.5rem;
+            margin-right: 1rem;
+        }
+        .achievement-info h3 {
+            font-size: 1rem;
+            color: #ddd6fe;
+            margin: 0;
+        }
+        .achievement-info p {
+            color: #c4b5fd;
+            margin: 0.5rem 0 0 0;
+        }
+        #contact {
+    background-color: rgba(127, 29, 29, 0.5);
+    padding: 2rem 1rem;
+    max-width: 500px; /* Limit the background width */
+    margin: 0 auto; /* Center the background box */
+    border-radius: 0.5rem; /* Add rounded corners for a polished look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+#contact h2 {
+    color: #fca5a5;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form {
+    max-width: 100%; /* Ensure the form width matches the background box */
+    margin: 0 auto; /* Center the form contents */
+    text-align: center; /* Center-align the content inside */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 90%; /* Ensure the input width is smaller than the container */
+    max-width: 400px; /* Restrict maximum width */
+    padding: 0.5rem;
+    margin: 0.5rem auto; /* Space inputs evenly and center them */
+    background-color: #991b1b;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    display: block; /* Make inputs stack vertically */
+}
+
+.contact-form textarea {
+    height: 6rem; /* Adjust the height of the text area */
+}
+
+.contact-form button {
+    width: auto; /* Auto-size the button */
+    background-color: #dc2626;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 1rem auto; /* Center the button */
+}
+
+.contact-form button:hover {
+    background-color: #ef4444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #contact {
+        padding: 1.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%; /* Use full width on small screens */
+    }
+
+    .contact-form {
+        padding: 0 1rem; /* Add some padding to inputs on small screens */
+    }
+}
+
+    
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+            .profile-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .achievement-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Md Shaik Sahil's Portfolio</h1>
+        
+        <div class="nav-buttons">
+            <button class="nav-button active" data-section="profile">
+            <i data-lucide="user" style="margin-right: 0.5rem;"></i> Profile
+            </button>
+            <button class="nav-button" data-section="projects">
+            <i data-lucide="code" style="margin-right: 0.5rem;"></i> Projects
+            </button>
+            <button class="nav-button" data-section="achievements">
+            <i data-lucide="trophy" style="margin-right: 0.5rem;"></i> Achievements
+            </button>
+            <button class="nav-button" data-section="contact">
+            <i data-lucide="mail" style="margin-right: 0.5rem;"></i> Contact
+            </button>
+        </div>
+
+        <div id="profile" class="section active">
+            <h2>Player Profile</h2>
+            <div class="profile-content">
+                <img src="static/images/pic.jpg" alt="Player Avatar" class="profile-image">
+                <div class="profile-info">
+                    <h3>Mohammed Shaik Sahil</h3>
+                    <p>Django Developer | Prompt Engineer | Software Developer | Game Level: Beginner</p>
+                    <div class="skills-container">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Python/Django</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Prompting</span>
+                    </div>
+                    
+                </div>
+            </div> <!-- Closing profile-content div -->
+            <div class="profile-bio">
+                <h3>Bio</h3>
+                <p>Hello! I am Mohammed Shaik Sahil.</p>
+                <p>I am currently pursuing a Bachelor of Engineering at Nawab Shah Alam Khan College of Engineering and Technology, specializing in Computer Science with a major in IoT and Cyber Security. With a strong foundation in these cutting-edge fields, I am passionate about exploring the intersections of technology and Web Development.</p>
+                <h4>Academic and Professional Skills</h4>
+                <ul>
+                    <li>Proficient in Python Programming</li>
+                    <li>Proficient in C programming and Python programming</li>
+                    <li>Experienced in Linux Operating Systems</li>
+                    <li>Enthusiastic about Science, my favorite subject, which fuels my curiosity and innovation</li>
+                </ul>
+                <h4>Hobbies and Interests</h4>
+                <ul>
+                    <li>Sports Enthusiast: I actively participate in a variety of sports, including Badminton, Kabaddi, Volleyball, Swimming, Boxing, Billiards, and Table Tennis</li>
+                    <li>Achievements: I have garnered multiple certificates for my participation and accomplishments in various sports during my college days, demonstrating my dedication and teamwork skills</li>
+                </ul>
+                <h4>Connect with Me</h4>
+                <p>
+                    <i data-lucide="linkedin" style="color: #0a66c2; margin-right: 0.5rem;"></i>
+                    LinkedIn: <a href="https://www.linkedin.com/in/mdshaiksahil" target="_blank" style="color: #0a66c2;">Mohammed Shaik Sahil</a>
+                </p>
+                <p>
+                    <i data-lucide="instagram" style="color: #e4405f; margin-right: 0.5rem;"></i>
+                    Instagram: <a href="https://www.instagram.com/sahil_shaikz/profilecard/?igsh=Y2Q3NnBreWc0OXNz" target="_blank" style="color: #e4405f;">@sahil_shaikz</a>
+                </p>
+                <p>
+                    <i data-lucide="github" style="color: white; margin-right: 0.5rem;"></i>
+                    Github: <a href="https://github.com/sahisani1305" target="_blank" style="color: white;">Mohammed Shaik Sahil</a>
+                </p>
+                <p>
+                    <i data-lucide="mail" style="color: yellow; margin-right: 0.5rem;"></i>
+                    <span style="color: yellow;">For more queries and information, please contact me by visiting the contact page.</span>
+                </p>
+            </div>
+        </div>
+
+        <div id="projects" class="section">
+            <h2>Project Inventory</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Website Builder I</h3>
+                    <p>Website for "THE LITERARY CLUB"</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Wordpress</span>
+                        <span class="tech-tag">Prompt</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Website Builder II</h3>
+                    <p>Website for "NSAKCET MUN'24"</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JS</span>
+                        <span class="tech-tag">Prompt</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Django Project Builder I</h3>
+                    <p>Attendance Project</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python/Django</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JS</span>
+                        <span class="tech-tag">Prompt</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Django Project Builder II</h3>
+                    <p>Records Project For R&D SIH</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python/Django</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JS</span>
+                        <span class="tech-tag">Prompt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="achievements" class="section">
+            <h2>Achievements Unlocked</h2>
+            <div class="achievement-card">
+                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
+                <div class="achievement-info">
+                    <h3>Python Mastery</h3>
+                    <p>Completed advanced Python Programming Certification</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
+                <div class="achievement-info">
+                    <h3>Storage Mastery</h3>
+                    <p>Completed Multiple Database Courses and Certification</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
+                <div class="achievement-info">
+                    <h3>Hackathon Explorer</h3>
+                    <p>Attended multiple Hackathons</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
+                <div class="achievement-info">
+                    <h3>Networking Mastery</h3>
+                    <p>500+ connections on LinkedIn and mostly attends Networking Events</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="section">
+            <h2>Send a Message</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="username" placeholder="Your Username" required>
+                <input type="text" id="mobile" placeholder="Your Mobile Number" required pattern="[0-9]{10}">
+                <textarea id="message" placeholder="Quest Details (Your Message)" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>        
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Handle navigation
+        const navButtons = document.querySelectorAll('.nav-button');
+        const sections = document.querySelectorAll('.section');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sectionId = button.getAttribute('data-section');
+                
+                // Update active button
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Show active section
+                sections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        const botToken = '7242854466:AAHDbz3QtSJuOcA8Opkbdle2piZWg4-UXQ0'; // Your provided API token
+        const chatId = '7578492787'; // Replace with your chat ID obtained from the Telegram Bot API
+    
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const username = document.getElementById('username').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const message = document.getElementById('message').value.trim();
+    
+            if (username && mobile && message) {
+                const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                const data = {
+                    chat_id: chatId,
+                    text: `New Message from Contact Form:\n\nUsername: ${username}\nMobile: ${mobile}\nMessage: ${message}`,
+                };
+    
+                fetch(telegramApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            alert('Message sent successfully!');
+                            document.getElementById('contactForm').reset();
+                        } else {
+                            alert('Failed to send message. Please check your API key and chat ID.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.');
+                    });
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+    
+</body>
+</html>
+
