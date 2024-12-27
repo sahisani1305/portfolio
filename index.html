@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Portfolio</title>
+    <title>mdshaiksahil's Portfolio</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: monospace;
+            font-size: 1rem;
             background-color: #111827;
             color: white;
             margin: 0;
@@ -239,29 +240,32 @@
     text-align: center; /* Center-align the content inside */
 }
 
+/* Apply monospace font to form elements to match the body's font */
+.contact-form input[type="text"],
+.contact-form textarea,
+.contact-form button {
+    font-family: monospace;
+    color: white; /* Match text color */
+    background-color: #111827; /* Match background color */
+    border: 1px solid #991b1b; /* Optional: Use a border that complements your color scheme */
+    padding: 8px; /* Optional: Add some padding for better spacing */
+    box-sizing: border-box; /* Ensure padding is included in element's total width/height */
+}
+
+/* Additional styles for better consistency */
 .contact-form input,
 .contact-form textarea {
     width: 90%; /* Ensure the input width is smaller than the container */
     max-width: 400px; /* Restrict maximum width */
-    padding: 0.5rem;
     margin: 0.5rem auto; /* Space inputs evenly and center them */
-    background-color: #991b1b;
-    color: white;
-    border: none;
     border-radius: 0.25rem;
     font-size: 1rem;
     display: block; /* Make inputs stack vertically */
 }
 
-.contact-form textarea {
-    height: 6rem; /* Adjust the height of the text area */
-}
-
 .contact-form button {
-    width: auto; /* Auto-size the button */
     background-color: #dc2626;
     color: white;
-    padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -277,18 +281,19 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #contact {
-        padding: 1.5rem; /* Adjust padding for smaller screens */
+        padding: 1.5rem;
     }
 
     .contact-form input,
     .contact-form textarea {
-        width: 100%; /* Use full width on small screens */
+        width: 100%;
     }
 
     .contact-form {
-        padding: 0 1rem; /* Add some padding to inputs on small screens */
+        padding: 0 1rem;
     }
 }
+
 
     
         /* Media queries for responsiveness */
@@ -311,6 +316,38 @@
                 align-items: flex-start;
             }
         }
+        /* Custom styles for the Bio heading */
+#bio-heading {
+    font-family: 'Courier New', Courier, monospace; /* Change the font */
+    font-size: 1.75rem; /* Adjust the font size */
+    color: #ff4500; /* Change the text color */
+    background-color: #111827; /* Set a background color */
+    padding: 0.5rem 1rem; /* Add padding */
+    border-radius: 0.25rem; /* Add rounded corners */
+    text-transform: uppercase; /* Make text uppercase */
+    letter-spacing: 0.1rem; /* Add letter spacing */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow */
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 1rem; /* Add some space below the heading */
+}
+/* Style for the profile container */
+.profile-container {
+    background-color: #1f2937; /* Background color */
+    padding: 1.5rem; /* Padding around the content */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Box shadow */
+    max-width: 800px; /* Max width for the container */
+    margin: 2rem auto; /* Center the container with margin */
+    color: white; /* Text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+}
+
     </style>
     </head>
 <body>
@@ -340,6 +377,7 @@
                     <h3>Mohammed Shaik Sahil</h3>
                     <p>Django Developer | Prompt Engineer | Software Developer | Game Level: Beginner</p>
                     <div class="skills-container">
+                        <span class="skill-tag">C Language</span>
                         <span class="skill-tag">HTML/CSS</span>
                         <span class="skill-tag">Python/Django</span>
                         <span class="skill-tag">JavaScript</span>
@@ -349,8 +387,9 @@
                     
                 </div>
             </div> <!-- Closing profile-content div -->
+            <div class="profile-container">
             <div class="profile-bio">
-                <h3>Bio</h3>
+                <h3 id="bio-heading">Bio</h3>
                 <p>Hello! I am Mohammed Shaik Sahil.</p>
                 <p>I am currently pursuing a Bachelor of Engineering at Nawab Shah Alam Khan College of Engineering and Technology, specializing in Computer Science with a major in IoT and Cyber Security. With a strong foundation in these cutting-edge fields, I am passionate about exploring the intersections of technology and Web Development.</p>
                 <h4>Academic and Professional Skills</h4>
@@ -384,6 +423,7 @@
                 </p>
             </div>
         </div>
+        </div>
 
         <div id="projects" class="section">
             <h2>Project Inventory</h2>
@@ -403,6 +443,16 @@
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JS</span>
                         <span class="tech-tag">Prompt</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Website Builder III</h3>
+                    <p>Website for "Portfolio"</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JS</span>
+                        <span class="tech-tag">Prompt</span>
+                        <span class="tech-tag">Telegram API</span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -464,7 +514,7 @@
             <form class="contact-form" id="contactForm">
                 <input type="text" id="username" placeholder="Your Username" required>
                 <input type="text" id="mobile" placeholder="Your Mobile Number" required pattern="[0-9]{10}">
-                <textarea id="message" placeholder="Quest Details (Your Message)" required></textarea>
+                <textarea id="message" placeholder="Any Queries...? (Your Message)" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </div>        
