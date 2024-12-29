@@ -3,18 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mdshaiksahil's Portfolio</title>
+    <title>Game Portfolio</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body {
-            font-family: monospace;
-            font-size: 1rem;
-            background-color: #111827;
-            color: white;
-            margin: 0;
-            padding: 32px;
-            min-height: 100vh;
-        }
+        /* Assuming your body font is defined like this */
+body {
+    font-family: monospace;
+    font-size: 1.2rem; /* Increase the font size */
+    background-color: #111827;
+    color: white;
+    margin: 0;
+    padding: 32px;
+    min-height: 100vh;
+}
+
+/* Apply the same font styles to form elements */
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    font-family: monospace;
+    font-size: 1.2rem; /* Match the font size */
+    color: white; /* Match text color */
+    background-color: #111827; /* Match background color */
+    border: 1px solid #6ee7b7; /* Optional: Add a border */
+    padding: 8px; /* Optional: Add some padding for better spacing */
+}
+
+/* Additional styling for better visual consistency */
+.contact-form input,
+.contact-form textarea {
+    width: 90%; /* Ensure the input width is smaller than the container */
+    max-width: 400px; /* Restrict maximum width */
+    margin: 0.5rem auto; /* Space inputs evenly and center them */
+    border-radius: 0.25rem;
+    display: block; /* Make inputs stack vertically */
+}
+
+.contact-form button {
+    background-color: #10b981; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color changes */
+    display: block;
+    margin: 1rem auto; /* Center the button */
+}
+
+.contact-form button:hover {
+    background-color: #34d399; /* Button hover background color */
+}
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -240,32 +279,29 @@
     text-align: center; /* Center-align the content inside */
 }
 
-/* Apply monospace font to form elements to match the body's font */
-.contact-form input[type="text"],
-.contact-form textarea,
-.contact-form button {
-    font-family: monospace;
-    color: white; /* Match text color */
-    background-color: #111827; /* Match background color */
-    border: 1px solid #991b1b; /* Optional: Use a border that complements your color scheme */
-    padding: 8px; /* Optional: Add some padding for better spacing */
-    box-sizing: border-box; /* Ensure padding is included in element's total width/height */
-}
-
-/* Additional styles for better consistency */
 .contact-form input,
 .contact-form textarea {
     width: 90%; /* Ensure the input width is smaller than the container */
     max-width: 400px; /* Restrict maximum width */
+    padding: 0.5rem;
     margin: 0.5rem auto; /* Space inputs evenly and center them */
+    background-color: #991b1b;
+    color: white;
+    border: none;
     border-radius: 0.25rem;
     font-size: 1rem;
     display: block; /* Make inputs stack vertically */
 }
 
+.contact-form textarea {
+    height: 6rem; /* Adjust the height of the text area */
+}
+
 .contact-form button {
+    width: auto; /* Auto-size the button */
     background-color: #dc2626;
     color: white;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -281,19 +317,18 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #contact {
-        padding: 1.5rem;
+        padding: 1.5rem; /* Adjust padding for smaller screens */
     }
 
     .contact-form input,
     .contact-form textarea {
-        width: 100%;
+        width: 100%; /* Use full width on small screens */
     }
 
     .contact-form {
-        padding: 0 1rem;
+        padding: 0 1rem; /* Add some padding to inputs on small screens */
     }
 }
-
 
     
         /* Media queries for responsiveness */
@@ -306,7 +341,8 @@
             }
             .profile-content {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                text-align:center;
             }
             .project-grid {
                 grid-template-columns: 1fr;
@@ -316,38 +352,6 @@
                 align-items: flex-start;
             }
         }
-        /* Custom styles for the Bio heading */
-#bio-heading {
-    font-family: 'Courier New', Courier, monospace; /* Change the font */
-    font-size: 1.75rem; /* Adjust the font size */
-    color: #ff4500; /* Change the text color */
-    background-color: #111827; /* Set a background color */
-    padding: 0.5rem 1rem; /* Add padding */
-    border-radius: 0.25rem; /* Add rounded corners */
-    text-transform: uppercase; /* Make text uppercase */
-    letter-spacing: 0.1rem; /* Add letter spacing */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow */
-    text-align: center; /* Center-align the heading */
-    margin-bottom: 1rem; /* Add some space below the heading */
-}
-/* Style for the profile container */
-.profile-container {
-    background-color: #1f2937; /* Background color */
-    padding: 1.5rem; /* Padding around the content */
-    border-radius: 0.5rem; /* Rounded corners */
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Box shadow */
-    max-width: 800px; /* Max width for the container */
-    margin: 2rem auto; /* Center the container with margin */
-    color: white; /* Text color */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .profile-container {
-        padding: 1rem; /* Adjust padding for smaller screens */
-    }
-}
-
     </style>
     </head>
 <body>
@@ -375,21 +379,21 @@
                 <img src="static/images/pic.jpg" alt="Player Avatar" class="profile-image">
                 <div class="profile-info">
                     <h3>Mohammed Shaik Sahil</h3>
-                    <p>Django Developer | Prompt Engineer | Software Developer | Game Level: Beginner</p>
+                    <p>Web Developer | Prompt Engineer | Software Developer | Game Level: Beginner</p>
                     <div class="skills-container">
-                        <span class="skill-tag">C Language</span>
                         <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">C Language</span>
                         <span class="skill-tag">Python/Django</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">MongoDB</span>
                         <span class="skill-tag">Prompting</span>
+                        <span class="skill-tag">GitHub</span>
                     </div>
                     
                 </div>
             </div> <!-- Closing profile-content div -->
-            <div class="profile-container">
-            <div class="profile-bio">
-                <h3 id="bio-heading">Bio</h3>
+            <div class="profile-bio" style="border: 2px solid #059669; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+                <h2 style="text-align: center;">BIO</h2>
                 <p>Hello! I am Mohammed Shaik Sahil.</p>
                 <p>I am currently pursuing a Bachelor of Engineering at Nawab Shah Alam Khan College of Engineering and Technology, specializing in Computer Science with a major in IoT and Cyber Security. With a strong foundation in these cutting-edge fields, I am passionate about exploring the intersections of technology and Web Development.</p>
                 <h4>Academic and Professional Skills</h4>
@@ -423,7 +427,6 @@
                 </p>
             </div>
         </div>
-        </div>
 
         <div id="projects" class="section">
             <h2>Project Inventory</h2>
@@ -443,6 +446,7 @@
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JS</span>
                         <span class="tech-tag">Prompt</span>
+                        <span class="tech-tag">GitHub Pages</span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -452,7 +456,7 @@
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JS</span>
                         <span class="tech-tag">Prompt</span>
-                        <span class="tech-tag">Telegram API</span>
+                        <span class="tech-tag">GitHub Pages</span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -482,6 +486,13 @@
             <div class="achievement-card">
                 <i data-lucide="trophy" style="margin-right: 1rem;"></i>
                 <div class="achievement-info">
+                    <h3>C Language Mastery</h3>
+                    <p>Completed Diploma in C Language Programming Certification</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
+                <div class="achievement-info">
                     <h3>Python Mastery</h3>
                     <p>Completed advanced Python Programming Certification</p>
                 </div>
@@ -507,21 +518,14 @@
                     <p>500+ connections on LinkedIn and mostly attends Networking Events</p>
                 </div>
             </div>
-            <div class="achievement-card">
-                <i data-lucide="trophy" style="margin-right: 1rem;"></i>
-                <div class="achievement-info">
-                    <h3>Hosting Alchemy</h3>
-                    <p>Can host websites and Django projects using Github and Tunneling</p>
-                </div>
-            </div>
         </div>
 
         <div id="contact" class="section">
             <h2>Send a Message</h2>
             <form class="contact-form" id="contactForm">
-                <input type="text" id="username" placeholder="Your Username" required>
+                <input type="text" id="username" placeholder="Your Full Name" required>
                 <input type="text" id="mobile" placeholder="Your Mobile Number" required pattern="[0-9]{10}">
-                <textarea id="message" placeholder="Any Queries...? (Your Message)" required></textarea>
+                <textarea id="message" placeholder="Any Queries..." required></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </div>        
