@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Portfolio</title>
+    <title>mdshaiksahil's Portfolio</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* Assuming your body font is defined like this */
@@ -53,8 +53,84 @@ body {
 .contact-form button:hover {
     background-color: #34d399; /* Button hover background color */
 }
+/* Style for the project card */
+.project-card {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;
+}
 
-        .container {
+/* Style for the Show More text */
+.show-more-text {
+    color: #007bff;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Style for the website preview section */
+.website-preview {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.website-preview iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+/* Style for the Visit Site link */ 
+.visit-site-link { 
+    display: block; 
+    margin: 1rem auto 0; 
+    padding: 0.5rem 1rem; 
+    color: #007bff; 
+    text-align: center; 
+    text-decoration: none; 
+    font-weight: bold; 
+} 
+.visit-site-link:hover { 
+    text-decoration: underline; 
+    color: #0056b3; 
+}
+/* Responsive styles for small screens (mobile devices) */
+@media (max-width: 768px) {
+    .project-card {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .show-more-text {
+        font-size: 0.9rem;
+    }
+
+    .website-preview iframe {
+        height: 250px;
+    }
+}
+
+/* Responsive styles for very small screens (e.g., narrow mobile devices) */
+@media (max-width: 480px) {
+    .project-card {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .show-more-text {
+        font-size: 0.8rem;
+    }
+
+    .website-preview iframe {
+        height: 150px;
+    }
+}
+.container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 16px;
@@ -193,18 +269,12 @@ body {
             color: #93c5fd;
         }
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
+            display: block; /* Change to block layout */
         }
         .project-card {
             background-color: #1e40af;
             padding: 1rem;
             border-radius: 0.5rem;
-            transition: transform 0.3s;
-        }
-        .project-card:hover {
-            transform: scale(1.05);
         }
         .project-card h3 {
             font-size: 1.25rem;
@@ -431,54 +501,89 @@ body {
         <div id="projects" class="section">
             <h2>Project Inventory</h2>
             <div class="project-grid">
-                <div class="project-card">
-                    <h3>Website Builder I</h3>
-                    <p>Website for "THE LITERARY CLUB"</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Wordpress</span>
-                        <span class="tech-tag">Prompt</span>
+                <div id="projects" class="section">
+                    <h2>Project Inventory</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <h3>Website Builder I</h3>
+                            <p>Website for "THE LITERARY CLUB"</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">WordPress</span>
+                                <span class="tech-tag">Prompt</span>
+                            </div>
+                            <p class="show-more-text">&#x25BC; Show More &#x25BC;</p>
+                            <div class="website-preview">
+                                <iframe src="https://theliteraryclubnsakcet.in/" frameborder="0"></iframe>
+                            </div>
+                            <a href="https://theliteraryclubnsakcet.in/" target="_blank" class="visit-site-link">Visit Site</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Website Builder II</h3>
+                            <p>Website for "NSAKCET MUN'24"</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JS</span>
+                                <span class="tech-tag">Prompt</span>
+                                <span class="tech-tag">GitHub Pages</span>
+                            </div>
+                            <p class="show-more-text">&#x25BC; Show More &#x25BC;</p>
+                            <div class="website-preview">
+                                <iframe src="https://nsakcetmun.theliteraryclubnsakcet.in/" frameborder="0"></iframe>
+                            </div>
+                            <a href="https://nsakcetmun.theliteraryclubnsakcet.in/" target="_blank" class="visit-site-link">Visit Site</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Website Builder III</h3>
+                            <p>Website for "Portfolio"</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JS</span>
+                                <span class="tech-tag">Prompt</span>
+                                <span class="tech-tag">GitHub Pages</span>
+                            </div>
+                            <p class="show-more-text">&#x25BC; Show More &#x25BC;</p>
+                            <div class="website-preview">
+                                <iframe src="https://sahisani1305.github.io/portfolio/" frameborder="0"></iframe>
+                            </div>
+                            <a href="https://sahisani1305.github.io/portfolio/" target="_blank" class="visit-site-link">Visit Site</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Django Project Builder I</h3>
+                            <p>Attendance Project</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python/Django</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JS</span>
+                                <span class="tech-tag">Prompt</span>
+                            </div>
+                            <p class="show-more-text">&#x25BC; Show More &#x25BC;</p>
+                            <div class="website-preview">
+                                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7278691386139271168" frameborder="0"></iframe>
+                            </div>
+                            <a href="https://www.linkedin.com/posts/mdshaiksahil_attendancemanagement-edtech-innovationineducation-activity-7278692192989130752-Blmy?utm_source=share&utm_medium=member_desktop" target="_blank" class="visit-site-link">Visit Post</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Django Project Builder II</h3>
+                            <p>Records Project For R&D SIH</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python/Django</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JS</span>
+                                <span class="tech-tag">Prompt</span>
+                            </div>
+                            <p class="show-more-text">&#x25BC; Show More &#x25BC;</p>
+                            <div class="website-preview">
+                                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7246201525226610689"></iframe>                            
+                            </div>
+                            <a href="https://www.linkedin.com/posts/mdshaiksahil_hey-connections-i-am-happy-to-share-the-activity-7246201725357826049-Dw10?utm_source=share&utm_medium=member_desktop" target="_blank" class="visit-site-link">Visit Post</a>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <h3>Website Builder II</h3>
-                    <p>Website for "NSAKCET MUN'24"</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JS</span>
-                        <span class="tech-tag">Prompt</span>
-                        <span class="tech-tag">GitHub Pages</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Website Builder III</h3>
-                    <p>Website for "Portfolio"</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JS</span>
-                        <span class="tech-tag">Prompt</span>
-                        <span class="tech-tag">GitHub Pages</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Django Project Builder I</h3>
-                    <p>Attendance Project</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python/Django</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JS</span>
-                        <span class="tech-tag">Prompt</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Django Project Builder II</h3>
-                    <p>Records Project For R&D SIH</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python/Django</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JS</span>
-                        <span class="tech-tag">Prompt</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div id="achievements" class="section">
@@ -598,7 +703,55 @@ body {
             }
         });
     </script>
-    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Handle the Show More / Show Less functionality for all project cards
+        document.querySelectorAll('.show-more-text').forEach(element => {
+            element.addEventListener('click', function() {
+                const preview = this.nextElementSibling;
+                if (preview.style.maxHeight === "0px" || !preview.style.maxHeight) {
+                    // Expand the preview
+                    preview.style.display = "block";
+                    preview.style.maxHeight = preview.scrollHeight + "px";
+                    this.innerHTML = '&#x25B2; Show Less &#x25B2;';
+                } else {
+                    // Collapse the preview with a smooth transition
+                    preview.style.maxHeight = "0px";
+                    this.innerHTML = '&#x25BC; Show More &#x25BC;';
+                    // Wait for the transition to complete before setting display to none
+                    preview.addEventListener('transitionend', function handleTransitionEnd() {
+                        if (preview.style.maxHeight === "0px") {
+                            preview.style.display = "none";
+                        }
+                        // Remove the event listener after handling it
+                        preview.removeEventListener('transitionend', handleTransitionEnd);
+                    });
+                }
+            });
+        });
+
+        // Function to handle clicks outside the preview
+        function handleOutsideClick(event) {
+            document.querySelectorAll('.website-preview').forEach(preview => {
+                const showMoreText = preview.previousElementSibling;
+                if (!preview.contains(event.target) && !showMoreText.contains(event.target)) {
+                    preview.style.maxHeight = "0px";
+                    showMoreText.innerHTML = '&#x25BC; Show More &#x25BC;';
+                    // Wait for the transition to complete before setting display to none
+                    preview.addEventListener('transitionend', function handleTransitionEnd() {
+                        if (preview.style.maxHeight === "0px") {
+                            preview.style.display = "none";
+                        }
+                        // Remove the event listener after handling it
+                        preview.removeEventListener('transitionend', handleTransitionEnd);
+                    });
+                }
+            });
+        }
+
+        // Add the event listener for outside clicks
+        document.addEventListener('click', handleOutsideClick);
+    });
+</script>
 </body>
 </html>
-
